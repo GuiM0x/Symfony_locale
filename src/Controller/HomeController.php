@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/", requirements={"_locale": "%app.supported_locales%"}, name="home_")
+ * @Route("/", requirements={"_locale": "%app.supported_locales%"})
  */
 class HomeController extends AbstractController
 {
@@ -17,5 +17,13 @@ class HomeController extends AbstractController
     public function index()
     {
         return $this->render('home/index.html.twig');
+    }
+
+    /**
+     * @Route("/another-route", name="another_route")
+     */
+    public function anotherRoute()
+    {
+        return $this->render("home/another-route.html.twig");
     }
 }
