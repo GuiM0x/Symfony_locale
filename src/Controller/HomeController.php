@@ -4,15 +4,11 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @Route("/", requirements={"_locale": "%app.supported_locales%"})
- */
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/{_locale}", name="index")
+     * @Route("/", name="index")
      */
     public function index()
     {
