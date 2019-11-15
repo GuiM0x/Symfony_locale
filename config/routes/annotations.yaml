@@ -3,5 +3,5 @@ controllers:
     type: annotation
     prefix: /{_locale}
     requirements:
-        _locale: fr|en
-    defaults: {_locale: fr}
+        _locale: '%app.supported_locales%'
+    defaults: {_locale: '%app.default_locale%'}

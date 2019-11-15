@@ -15,7 +15,7 @@ class LocaleRewriteListener implements EventSubscriberInterface
         $oldUrl = $request->getPathInfo();
         $exploded = explode("/", $oldUrl);
         $locales = ["fr", "en"];
-        $defaultLocale = $request->getLocale();
+        $defaultLocale = $request->getSession()->get("_locale");
         if(!$defaultLocale){
             $defaultLocale = "fr";
         }
