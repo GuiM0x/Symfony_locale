@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
@@ -8,6 +8,10 @@
       <trans-unit id="pZGm1Av" resname="Hello World">
         <source>Hello World</source>
         <target>Hello World</target>
+      </trans-unit>
+      <trans-unit id="G5yVn8i" resname="Hello Another Route">
+        <source>Hello Another Route</source>
+        <target>Hello Another Route</target>
       </trans-unit>
     </body>
   </file>
