@@ -9,19 +9,27 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class LocaleRewriteListener implements EventSubscriberInterface
 {
+    private $defaultLocale;
+    private $supportedLocales;
+
+    /**
+     * $defaultLocale and $supportedLocales injected from services.yaml
+     */
+    public function __construct(string $defaultLocale, string $supportedLocales)
+    {
+        $this->defaultLocale = $defaultLocale;
+        $this->supportedLocales = explode("|", $supportedLocales);
+    }
+
     public function onKernelRequest(GetResponseEvent $event)
     {
         $request = $event->getRequest();
         $oldUrl = $request->getPathInfo();
         $exploded = explode("/", $oldUrl);
-        $locales = ["fr", "en"];
-        $defaultLocale = $request->getSession()->get("_locale");
-        if(!$defaultLocale){
-            $defaultLocale = "fr";
-        }
+        $locale = $request->getSession()->get("_locale", $this->defaultLocale);
         $newUrl = "/";
-        if(!in_array($exploded[1], $locales)){
-            $newUrl .= $defaultLocale . $oldUrl;
+        if(!in_array($exploded[1], $this->supportedLocales)){
+            $newUrl .= $locale . $oldUrl;
             $event->setResponse(new RedirectResponse($newUrl));
         }
     }
