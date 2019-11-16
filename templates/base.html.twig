@@ -6,6 +6,8 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <p><a href="{{ path('default_language', {"language": "fr"}) }}">French version</a></p>
+        <p><a href="{{ path('default_language', {"language": "en"}) }}">English version</a></p>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
