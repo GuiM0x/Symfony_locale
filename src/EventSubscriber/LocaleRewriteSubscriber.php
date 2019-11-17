@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class LocaleRewriteListener implements EventSubscriberInterface
+class LocaleRewriteSubscriber implements EventSubscriberInterface
 {
     private $defaultLocale;
     private $supportedLocales;
